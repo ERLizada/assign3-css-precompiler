@@ -20,7 +20,6 @@ $color-footer-text: #989898;
     transition: all $duration ease;
 }
 
-
 body {
     @include font-main;
 }
@@ -39,7 +38,7 @@ a {
     font-weight: 400;
     text-decoration: none;
     color: $color-link;
-    @include transition-all(0.20s);
+    @include transition-all(0.2s);
 
     &:hover {
         color: $color-link-hover;
@@ -72,7 +71,6 @@ h6 { font-size: 15px; }
     }
 }
 
-
 /* HEADER */
 header {
     font-family: $font-family-header;
@@ -99,39 +97,39 @@ header {
             @media only screen and (min-width: 650px) {
                 ul {
                     visibility: hidden;
-                    opacity: 50;
+                    opacity: 0;
                     display: block;
                     position: absolute;
                     z-index: 9999;
                     left: 0;
                     background: #f0f0f0;
                     transition: all 0.2s ease-out;
+
+                    li {
+                        border-top: 1px solid #e9e9e9;
+                        margin: 0;
+
+                        a {
+                            display: block;
+                            color: #111111;
+                            min-width: 175px;
+                            margin: 0;
+                            padding: 20px 10px;
+                            line-height: 1.4em;
+                            letter-spacing: 1px;
+                            transition: 0.35s;
+
+                            &:hover {
+                                background: #ffffff;
+                                color: #000;
+                            }
+                        }
+                    }
                 }
 
                 &:hover ul {
                     visibility: visible;
-                    opacity: 100;
-                }
-
-                ul li {
-                    border-top: 1px solid #e9e9e9;
-                    margin: 0;
-
-                    a {
-                        display: block;
-                        color: #111111;
-                        min-width: 175px;
-                        margin: 0;
-                        padding: 20px 10px;
-                        line-height: 1.4em;
-                        letter-spacing: 1px;
-                        transition: 0.35s;
-
-                        &:hover {
-                            background: #ffffff;
-                            color: #000;
-                        }
-                    }
+                    opacity: 1;
                 }
             }
         }
@@ -168,17 +166,16 @@ header {
     }
 }
 
-
 /* POSTS */
 article {
     margin-bottom: 50px;
     display: flex;
     flex-wrap: wrap;
 
-    @media only screen and (min-width: 650px) {
-        display: flex;
+    .image-part {
+        margin-bottom: 10px;
 
-        .image-part {
+        @media only screen and (min-width: 650px) {
             flex: 1;
             overflow: hidden;
             margin-bottom: 0;
@@ -187,19 +184,17 @@ article {
                 @include transition-all(3.5s);
 
                 &:hover {
-                    transform: scale(1.5, 1.5);
+                    transform: scale(1.5);
                 }
             }
         }
+    }
 
-        .content-part {
+    .content-part {
+        @media only screen and (min-width: 650px) {
             flex: 1;
             padding-left: 50px;
         }
-    }
-
-    .image-part {
-        margin-bottom: 10px;
     }
 
     .post-title {
@@ -221,8 +216,6 @@ article {
         }
     }
 }
-
-
 
 /* FOOTER */
 footer {
